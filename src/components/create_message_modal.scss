@@ -1,0 +1,59 @@
+@use '../global';
+
+#create_message_modal,
+.modal-dialog{
+    max-width: 937px;
+
+    .modal-content{
+        border-radius: 6px;
+    }
+
+    .modal-header{
+        border: none;
+        padding-block: 41px 23px;
+    }
+
+    .modal-title{
+        width: 100%;
+        text-align: center;
+        font-size: 26px;
+        color: global.$indigo;
+    }
+
+    .btn-close{
+        background: url("../images/icons.png") no-repeat -93px -6px;
+        height: 18px;
+        position: absolute;
+        right: 27px;
+        width: 18px;
+        opacity: 1;
+        box-sizing: border-box;
+        top: 26px;
+    }
+
+    .modal-body{
+        padding: 16px 51px 50px;
+        text-align: right;
+
+        textarea{
+            height: 185px;
+            padding: 9px 14px;
+            margin-bottom: 24px;
+            resize: none;
+        }
+
+        .cancel_button{
+            @include global.secondary_button();
+            margin-right: 24px;
+        }
+
+        #post_message_button{
+            @include global.primary_button();
+            padding: 7px 40px;
+
+            &.disabled{
+                opacity: .5;
+            }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BackroundImage       from '../images/person.svg';
+import './sign_up.scss';
 
 class SignUp extends Component{
     render(){
@@ -8,7 +9,7 @@ class SignUp extends Component{
                 <div className="form_container">
                     <form id="sign_up_form">
                         <h2>The Wall</h2>
-                        <h1>Login</h1>
+                        <h1>Register</h1>
 
                         <label htmlFor="email">Email</label>
                         <input type="email" name="email" id="email" />

@@ -1,0 +1,107 @@
+@use '../global';
+
+#login, #sign_up{
+    display: flex;
+    min-height: 100vh;
+
+    .form_container{
+        width: 60%;
+        background-color: #fbfbfb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        form{
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0px 4px 8px 0px #0000000D;
+            width: 450px;
+            padding: 34px 39px 16px;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        h2{
+            font-weight: 600;
+            font-size: 22px;
+            color: global.$blue;
+            margin-bottom: 47px;
+        }
+
+        h1{
+            font-weight: 600;
+            font-size: 40px;
+            color: global.$indigo;
+            margin-bottom: 12px;
+        }
+
+        label{
+            font-weight: 300;
+            font-size: 16px;
+            margin-block: 13px 6px;
+        }
+
+        #password_area{
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            a{
+                font-size: 14px;
+                font-weight: 300;
+                color: global.$dark_silver;
+            }
+        }
+
+        input{
+            display: block;
+            background-color: rgba(44, 107, 255, 0.08);
+            border: none;
+            width: 100%;
+            color: global.$indigo;
+            font-size: 14px;
+            padding: 16px 9px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+
+            &.error{
+                background-color: rgba(225, 85, 76, 0.08);
+            }
+        }
+
+        p.error_message{
+            color: rgba(225, 85, 76, 1);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        button{
+            @include global.primary_button();
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 4px;
+            padding: 16px 46px;
+            margin: 40px auto 38px;
+            display: block;
+        }
+
+        p.switch_form{
+            color: rgba(0,0,0,.2);
+            text-align: center;
+        }
+    }
+
+    .image_container{
+        width: 40%;
+        background-color: #86a7f2;
+        position: relative;
+
+        img{
+            position: absolute;
+            left: -68px;
+            transform: translateY(50%);
+        }
+    }
+}

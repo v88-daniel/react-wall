@@ -1,0 +1,34 @@
+@use '../global';
+
+#delete_message_modal, #delete_comment_modal{
+    max-width: 540px;
+
+    .modal-header{
+        padding-bottom: 18px;
+    }
+
+    .modal-body{
+        padding-inline: 61px;
+    }
+    
+    form{
+        text-align: center;
+
+        p{
+            color: global.$indigo;
+            margin-bottom: 33px;
+        }
+
+        .cancel_button{
+            @include global.secondary_button();
+            margin-left: 43px;
+        }
+
+        .remove_button{
+            @include global.primary_button();
+            padding: 11px 38px;
+            font-size: 18px;
+            margin-left: 52px;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+@use '../global';
+
+#dashboard{
+    background-color: #fbfbfb;
+    min-height: 100vh;
+    padding-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+
+    .custom_wrapper{
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        max-width: 1281px;
+        margin: 0 auto;
+    }
+
+    nav{
+        background-color: white;
+        box-shadow: 0px 4px 8px 0px #0000000D;
+        margin-bottom: 48px;
+        padding: 40px 79px;
+
+        #logo{
+            font-weight: 500;
+            font-size: 26px; 
+            color: global.$indigo;   
+            text-decoration: none;
+        }
+
+        #user{
+            color: global.$indigo;
+            font-weight: 300;
+
+            a{
+                color: global.$blue;
+                font-weight: 600;
+                margin-left: 12px;
+                text-decoration: none;
+            }
+        }
+    }
+
+    #wall{
+        background-color: white;
+        margin: 0 auto;
+        max-width: 1281px;
+        height: 80%;
+        padding: 70px 68px;
+        border-radius: 6px;
+        box-shadow: 0px 4px 8px 0px #0000000D;
+        flex: 1;
+        width: 100%;
+
+        header{
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+
+            #message_count{
+                color: global.$dark_silver;
+
+                strong{
+                    font-weight: 600;
+                    color: global.$blue;
+                }
+            }
+
+            #create_message_button{
+                @include global.primary_button();
+            }
+        }
+
+        #feed{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0;
+
+            #no_message_prompt{
+                color: global.$dark_silver;
+                text-align: center;
+                margin-top: 101px;
+
+                img{
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
