@@ -1,106 +1,110 @@
 @use '../global';
 
-#login, #sign_up{
+#login, #signup{
     display: flex;
     min-height: 100vh;
 
     .form_container{
-        width: 60%;
+        align-items: center;
         background-color: #fbfbfb;
         display: flex;
-        align-items: center;
         justify-content: center;
+        width: 60%;
 
         form{
             background-color: white;
-            border-radius: 6px;
-            box-shadow: 0px 4px 8px 0px #0000000D;
+            padding: 35px 40px 19px;
             width: 450px;
-            padding: 34px 39px 16px;
-        }
 
-        a{
-            text-decoration: none;
-        }
+            h2{
+                color: global.$blue;
+                font-size: 22px;
+                font-weight: 600;
+                margin-bottom: 47px;
+            }
 
-        h2{
-            font-weight: 600;
-            font-size: 22px;
-            color: global.$blue;
-            margin-bottom: 47px;
-        }
+            h1{
+                color: global.$indigo;
+                font-size: 40px;
+                font-weight: 600;
+                margin-bottom: -4px;
+            }
 
-        h1{
-            font-weight: 600;
-            font-size: 40px;
-            color: global.$indigo;
-            margin-bottom: 12px;
-        }
+            label{
+                font-weight: 300;
+                color: global.$indigo;
+                margin-block: 29px 7px;
+            }
 
-        label{
-            font-weight: 300;
-            font-size: 16px;
-            margin-block: 13px 6px;
-        }
+            #password_area{
+                align-items: baseline;
+                display: flex;
+                justify-content: space-between;
+                margin: 0;
 
-        #password_area{
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
+                a{
+                    color: black;
+                    font-size: 14px;
+                    font-weight: 300;
+                    opacity: .5;
+                    text-decoration: none;
+                }
+            }
 
-            a{
+            input{
+                background-color: rgba(44, 107, 255, 0.08);
+                border-radius: 4px;
+                border: none;
+                color: global.$indigo;
+                display: block;
+                font-size: 14px;
+                font-weight: 400;
+                padding: 18px 10px;
+                width: 100%;
+
+                &.error{
+                    background-color: rgba(225, 85, 76, 0.08);
+                }
+            }
+
+            p.error_message{
+                color: rgba(225, 85, 76, 1);
                 font-size: 14px;
                 font-weight: 300;
-                color: global.$dark_silver;
+                margin-bottom: 5px;
             }
-        }
 
-        input{
-            display: block;
-            background-color: rgba(44, 107, 255, 0.08);
-            border: none;
-            width: 100%;
-            color: global.$indigo;
-            font-size: 14px;
-            padding: 16px 9px;
-            border-radius: 4px;
-            margin-bottom: 6px;
-
-            &.error{
-                background-color: rgba(225, 85, 76, 0.08);
+            button{
+                @include global.primary_button;
+                padding: 16px 46px;
+                border-radius: 4px;
+                display: block;
+                text-transform: uppercase;
+                font-weight: 600;
+                margin: 40px auto 34px;
             }
-        }
 
-        p.error_message{
-            color: rgba(225, 85, 76, 1);
-            font-size: 14px;
-            font-weight: 300;
-        }
+            .form_switch{
+                color: rgba(0,0,0,.2);
+                font-weight: 400;
+                text-align: center;
 
-        button{
-            @include global.primary_button();
-            text-transform: uppercase;
-            font-weight: 600;
-            border-radius: 4px;
-            padding: 16px 46px;
-            margin: 40px auto 38px;
-            display: block;
-        }
-
-        p.switch_form{
-            color: rgba(0,0,0,.2);
-            text-align: center;
+                a{
+                    color: global.$blue;
+                    text-decoration: none;
+                }
+            }
         }
     }
 
     .image_container{
-        width: 40%;
         background-color: #86a7f2;
         position: relative;
+        width: 40%;
 
         img{
+            left: -67px;
             position: absolute;
-            left: -68px;
             transform: translateY(50%);
         }
     }

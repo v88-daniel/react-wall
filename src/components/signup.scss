@@ -1,0 +1,14 @@
+@use '../global';
+
+#signup{
+    #disclaimer{
+        color: global.$indigo;
+        margin-top: 35px;
+        text-align: center;
+
+        a{
+            color: global.$blue;
+            text-decoration: none;
+        }
+    }
+}

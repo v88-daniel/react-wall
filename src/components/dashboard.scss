@@ -2,54 +2,54 @@
 
 #dashboard{
     background-color: #fbfbfb;
-    min-height: 100vh;
-    padding-bottom: 48px;
     display: flex;
     flex-direction: column;
-
-    .custom_wrapper{
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        max-width: 1281px;
-        margin: 0 auto;
-    }
+    min-height: 100vh;
+    padding-bottom: 50px;
 
     nav{
         background-color: white;
         box-shadow: 0px 4px 8px 0px #0000000D;
-        margin-bottom: 48px;
-        padding: 40px 79px;
+        margin-bottom: 49px;
+        padding: 39px 79px;
+
+        .custom_wrapper{
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 1281px;
+            width: 100%;
+        }
 
         #logo{
+            color: global.$indigo;
+            font-size: 26px;
             font-weight: 500;
-            font-size: 26px; 
-            color: global.$indigo;   
             text-decoration: none;
         }
 
-        #user{
+        p#user{
             color: global.$indigo;
-            font-weight: 300;
+            margin: 0;
 
-            a{
+            button{
+                background-color: transparent;
+                border: none;
                 color: global.$blue;
                 font-weight: 600;
                 margin-left: 12px;
-                text-decoration: none;
             }
-        }
+        }   
     }
 
     #wall{
         background-color: white;
-        margin: 0 auto;
-        max-width: 1281px;
-        height: 80%;
-        padding: 70px 68px;
-        border-radius: 6px;
         box-shadow: 0px 4px 8px 0px #0000000D;
         flex: 1;
+        margin: 0 auto;
+        max-width: 1281px;
+        padding: 73px 69px;
         width: 100%;
 
         header{
@@ -59,16 +59,16 @@
             margin-bottom: 30px;
 
             #message_count{
-                color: global.$dark_silver;
+                color: #707070;
 
                 strong{
-                    font-weight: 600;
                     color: global.$blue;
+                    font-weight: 600
                 }
             }
 
             #create_message_button{
-                @include global.primary_button();
+                @include global.primary_button;
             }
         }
 
@@ -79,14 +79,15 @@
             padding: 0;
 
             #no_message_prompt{
-                color: global.$dark_silver;
+                color: #707070;
+                margin-top: 92px;
                 text-align: center;
-                margin-top: 101px;
 
                 img{
                     display: block;
-                    margin: 0 auto;
+                    margin: 0 auto 21px;
                 }
+
             }
         }
     }

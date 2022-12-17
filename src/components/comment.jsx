@@ -1,66 +1,65 @@
 import React, { Component } from 'react';
 import user_icon from '../images/user_icon.png';
 import DeleteCommentModal from './delete_comment_modal';
-// import './comment.scss';
 
 class Comment extends Component{
+
     state = {
-        is_show_edit_form: false,
         is_show_delete_modal: false,
-        updated_comment: null
+        is_show_edit_form: false,
+        updated_comment: null,
     }
 
-    toggleEditForm = (is_show_edit_form, comment = null) => this.setState({is_show_edit_form: !is_show_edit_form, updated_comment: comment});
+    getComment = (event) => {
+        this.setState({updated_comment: event.target.value});
+    }
 
-    getUpdatedComment = (updated_comment) => this.setState({updated_comment: updated_comment});
+    toggleEditForm = (is_show, comment = null) => {
+        this.setState({updated_comment: comment, is_show_edit_form: is_show});
+    }
 
-    updateComment = (event, comment_id) => {
+    submitEdit = (event, message_id, comment_id) => {
         event.preventDefault();
         const { updated_comment } = this.state;
         if(updated_comment){
-            this.props.updateComment(this.props.message_id, comment_id, updated_comment);
+            this.props.editComment(message_id, comment_id, updated_comment);
             this.setState({is_show_edit_form: false});
         }
     }
 
-    showDeleteModal = (is_show_delete_modal) => this.setState({is_show_delete_modal: !is_show_delete_modal});
-
     render(){
-        const { is_show_edit_form, is_show_delete_modal, updated_comment } = this.state;
-        const { message_id, comment, deleteComment } = this.props;
+        const { is_show_delete_modal, updated_comment, is_show_edit_form } = this.state;
+        const { comment, deleteComment, message_id } = this.props;
+
         return(
-            <li className="comment">
-                {
-                    !is_show_edit_form ?
-                    <React.Fragment>
-                        <p className="text_content">{comment.comment}</p>
-                        <div className="actions">
-                            <button type="submit" className="toggle_edit_button" onClick={() => this.toggleEditForm(is_show_edit_form, comment.comment)}><span></span> Edit</button>
-                            <button type="submit" className="toggle_delete_button" onClick={() => this.showDeleteModal(is_show_delete_modal)}><span></span> Delete</button>
-                        </div>
-                        <div className="post_info">
-                            <img src={user_icon} alt="User icon" />
-                            <div className="posted_by">You</div> -
-                            <div className="post_time">Few seconds ago</div>
-                        </div>
-                    </React.Fragment>
-                    :
-                    <form className="edit_form" onSubmit={(event) => this.updateComment(event, comment.id)}>
-                        <textarea name="edit_input" value={updated_comment} onChange={(event) => this.getUpdatedComment(event.target.value)}></textarea>
-                        <button type="button" className="cancel_button" onClick={() => this.toggleEditForm(is_show_edit_form)}>Cancel</button>
-                        <button type="submit" className={`submit_edit_button ${updated_comment ? "":"disabled"}`}>Update Comment</button>
-                    </form>
-                }
+            <React.Fragment>
+                <li className="comment">
+                    {
+                        !is_show_edit_form ?
+                        <React.Fragment>
+                            <p className="text">{comment.comment}</p>
+                            <div className="actions">
+                                <button type="button" className="toggle_edit_button" onClick={()=>this.toggleEditForm(true, comment.comment)}><span></span>Edit</button>
+                                <button type="button" className="toggle_delete_button" onClick={()=>this.setState({is_show_delete_modal: true})}><span></span>Delete</button>
+                            </div>
+                            <p className="post_info">
+                                <img src={user_icon} alt="user icon" />
+                                <span>You</span><span>-</span><span>Few seconds ago</span>
+                            </p>
+                        </React.Fragment>
+                        :
+                        <form className="edit_form" method="post" onSubmit={event=>this.submitEdit(event, message_id, comment.id)}>
+                            <textarea name="edit_input" defaultValue={updated_comment} onChange={event=>this.getComment(event)}></textarea>
+                            <button type="button" className="cancel_button" onClick={()=>this.toggleEditForm(false)}>Cancel</button>
+                            <button type="submit" className={`submit_edit_button  ${!updated_comment? "disabled":""}`}>Update Comment</button>
+                        </form>
+                    }
+                </li>
                 {
                     is_show_delete_modal &&
-                    <DeleteCommentModal 
-                        show={is_show_delete_modal} 
-                        onHide={() => this.setState({is_show_delete_modal: !is_show_delete_modal})} 
-                        deleteComment={deleteComment}
-                        message_id={message_id}
-                        comment_id={comment.id}/>
+                    <DeleteCommentModal show={is_show_delete_modal} onHide={()=>this.setState({is_show_delete_modal: false})} deleteComment={deleteComment} comment_id={comment.id} message_id={message_id}/>
                 }
-            </li>
+            </React.Fragment>
         )
     }
 }

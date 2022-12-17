@@ -1,11 +1,20 @@
 @use '../global';
 
-#create_message_modal,
-.modal-dialog{
+#create_message_modal{
     max-width: 937px;
 
-    .modal-content{
-        border-radius: 6px;
+    .btn-close{
+        background: url("../images/icons.png") no-repeat -93px -6px;
+        border-radius: 0;
+        box-sizing: border-box;
+        height: 18px;
+        margin: 0;
+        opacity: 1;
+        padding: 0;
+        position: absolute;
+        right: 20px;
+        top: 19px;
+        width: 18px;
     }
 
     .modal-header{
@@ -14,45 +23,38 @@
     }
 
     .modal-title{
-        width: 100%;
-        text-align: center;
-        font-size: 26px;
         color: global.$indigo;
-    }
-
-    .btn-close{
-        background: url("../images/icons.png") no-repeat -93px -6px;
-        height: 18px;
-        position: absolute;
-        right: 27px;
-        width: 18px;
-        opacity: 1;
-        box-sizing: border-box;
-        top: 26px;
+        font-size: 26px;
+        font-weight: 500;
+        text-align: center;
+        width: 100%;
     }
 
     .modal-body{
-        padding: 16px 51px 50px;
-        text-align: right;
+        padding-bottom: 48px;
 
-        textarea{
-            height: 185px;
-            padding: 9px 14px;
-            margin-bottom: 24px;
-            resize: none;
-        }
+        form{
+            padding-inline: 34px;
+            text-align: end;
 
-        .cancel_button{
-            @include global.secondary_button();
-            margin-right: 24px;
-        }
+            textarea{
+                height: 185px;
+                margin-bottom: 24px;
+                resize: none;
+            }
 
-        #post_message_button{
-            @include global.primary_button();
-            padding: 7px 40px;
+            .cancel_button{
+                @include global.secondary_button;
+            }
 
-            &.disabled{
-                opacity: .5;
+            .submit_message_button{
+                @include global.primary_button;
+                margin-left: 26px;
+                padding: 7px 41px;
+
+                &.disabled{
+                    opacity: .5;
+                }
             }
         }
     }

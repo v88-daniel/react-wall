@@ -1,99 +1,109 @@
 @use '../global';
 
 .message, .comment{
-    border: 1px solid global.$lavender;
     border-radius: 6px;
+    border: 1px solid global.$lavender;
     display: flex;
     flex-wrap: wrap;
-    padding: 23px 28px;
+    padding: 23px 29px;
+    width: 100%;
 
-    p{
-        width: 100%;
+    .text{
         color: global.$indigo;
         font-weight: 300;
-        margin-bottom: 18px;
+        width: 100%;
     }
 
-    ul{
-        padding: 0;
-    }
+    .actions{
+        display: flex;
+        height: fit-content;
 
-    .actions button{
-        @include global.secondary_button();
-        margin-right: 28px;
+        button{
+            @include global.secondary_button;
+            align-items: center;
+            display: flex;
+            height: fit-content;
+            margin-right: 29px;
 
-        &.toggle_comment_button{
             span{
-                @include global.span_icon;
-                background: url("../images/icons.png") no-repeat -3px -6px;
-                height: 18px;
-                width: 18px;
+                display: inline-block;
+                margin: 0 9px 3px 0;
             }
 
-            &.has_comment{
+            &.toggle_comment_button{
+                span{
+                    background: url("../images/icons.png") no-repeat -3px -6px;
+                    height: 18px;
+                    width: 18px;
+                }
+
+                &.has_comment{
+                    color: global.$blue;
+
+                    span{
+                        background: url("../images/icons.png") no-repeat -3px -36px;
+                    }
+                }
+            }
+
+            &.toggle_edit_button{
                 color: global.$blue;
 
                 span{
-                    background: url("../images/icons.png") -3px -36px;
+                    background: url("../images/icons.png") no-repeat -31px -4px;
+                    height: 22px;
+                    width: 22px;
+                }
+            }
+
+            &.toggle_delete_button{
+                span{
+                    background: url("../images/icons.png") no-repeat -64px -5px;
+                    height: 19px;
+                    width: 16px;
                 }
             }
         }
 
-        &.toggle_edit_button{
-            color: global.$blue;
+    }
 
-            span{
-                @include global.span_icon;
-                background: url("../images/icons.png") no-repeat -31px -4px;
-                height: 22px;
-                width: 22px;
-            }
+    p.post_info{
+        color: rgba(0, 0, 0, 0.6);
+        margin: 0;
+
+        img{
+            margin: 0 8px 4px 0;
         }
 
-        &.toggle_delete_button{
-            span{
-                @include global.span_icon;
-                background: url("../images/icons.png") no-repeat -64px -5px;
-                height: 19px;
-                width: 16px;
+        span{
+            font-weight: 500;
+
+            &:nth-child(2){
+                font-weight: 600;
+            }
+
+            &:nth-child(3){
+                margin-inline: 4px;
             }
         }
     }
 
-    .post_info{
-        align-items: center;
-        color: global.$dark_silver;
-        display: flex;
-        justify-content: space-between;
-
-        .posted_by{
-            font-weight: 600;
-            margin-inline: 7px 4px;
-        }
-
-        .post_time{
-            margin-left: 4px;
-        }
-    }
-
-    .edit_form{
+    .edit_form, .comment_form{
+        text-align: end;
         width: 100%;
-        text-align: right;
-        margin-top: 7px;
-        
+
         textarea{
-            padding: 8px 10px;
             margin-bottom: 13px;
             resize: none;
         }
 
         .cancel_button{
-            @include global.secondary_button();
-            margin-right: 30px
+            @include global.secondary_button;
         }
 
-        .submit_edit_button{
-            @include global.primary_button();
+        .submit_edit_button, .submit_comment_button{
+            @include global.primary_button;
+            margin-left: 30px;
 
             &.disabled{
                 opacity: .5;
@@ -102,32 +112,18 @@
     }
 
     .comment_form{
-        width: 100%;
-        text-align: right;
-        margin: 25px 0 20px 0;
-        border: 1px solid global.$lavender;
         border-radius: 6px;
-        padding: 28px;
-
-        textarea{
-            resize: none;
-            padding: 8px 10px;
-            margin-bottom: 13px;
-        }
-
-        button[type="submit"]{
-            @include global.primary_button();
-
-            &.disabled{
-                opacity: .5;
-            }
-        }
+        border: 1px solid global.$lavender;
+        margin-bottom: 20px;
+        margin-top: 23px;
+        padding: 29px;
     }
 
     .comments{
-        flex-direction: column;
         display: flex;
+        flex-direction: column;
         gap: 20px;
+        padding: 0;
         width: 100%;
     }
 }

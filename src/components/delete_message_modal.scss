@@ -3,32 +3,56 @@
 #delete_message_modal, #delete_comment_modal{
     max-width: 540px;
 
+    .btn-close{
+        background: url("../images/icons.png") no-repeat -93px -6px;
+        border-radius: 0;
+        box-sizing: border-box;
+        height: 18px;
+        margin: 0;
+        opacity: 1;
+        padding: 0;
+        position: absolute;
+        right: 20px;
+        top: 19px;
+        width: 18px;
+    }
+
     .modal-header{
-        padding-bottom: 18px;
+        border: none;
+        padding-block: 48px 19px;
+    }
+
+    .modal-title{
+        color: global.$indigo;
+        font-size: 26px;
+        font-weight: 500;
+        text-align: center;
+        width: 100%;
     }
 
     .modal-body{
-        padding-inline: 61px;
-    }
-    
-    form{
+        padding-bottom: 60px;
         text-align: center;
 
-        p{
-            color: global.$indigo;
-            margin-bottom: 33px;
-        }
+        form{
 
-        .cancel_button{
-            @include global.secondary_button();
-            margin-left: 43px;
-        }
+            p{
+                color: global.$indigo;
+                margin-bottom: 33px;
+                padding-inline: 24px;
+            }
 
-        .remove_button{
-            @include global.primary_button();
-            padding: 11px 38px;
-            font-size: 18px;
-            margin-left: 52px;
+            .cancel_button{
+                @include global.secondary_button;
+                margin-left: 46px;
+            }
+
+            .remove_button{
+                @include global.primary_button;
+                font-size: 18px;
+                margin-left: 75px;
+                padding: 10px 38px;
+            }
         }
     }
 }
