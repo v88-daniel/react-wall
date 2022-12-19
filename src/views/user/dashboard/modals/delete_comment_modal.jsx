@@ -1,11 +1,30 @@
+/** React */
 import React, { Component } from 'react';
+
+/** Plugin */
 import Modal from 'react-bootstrap/Modal';
 
+/**
+ * @class
+ * @extends Component
+ * This component class is being called on dashboard.jsx <br>
+ * This component class shows the modal to confirm the deletion of a comment. <br>
+ * Last updated at: December 19, 2022
+ */
 class DeleteCommentModal extends Component{
 
+    /**
+     * DOCU: Executes the process of passing the comment_id and message_id to the deleteComment method. <br>
+     * Triggered by a submit event of the form on render(). <br>
+     * Last updated at: December 19, 2022
+     * @function
+     * @memberof CreateMessageModal
+     * @param {object} event Required to call the preventDefault method. <br>
+     * @author Daniel
+     */
     deleteComment = event => {
         event.preventDefault();
-        const { comment_id, message_id } = this.props;
+        const { comment_to_delete: {comment_id, message_id} } = this.props;
         this.props.deleteComment(comment_id, message_id);
     }
     

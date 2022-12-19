@@ -1,14 +1,40 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import '../login/login.scss';
-import './signup.scss';
-import backround_image from '../../../assets/images/person.svg';
+/** React */
+import React, { Component }           from 'react';
+
+/** Plugins */
+import { Link }                       from 'react-router-dom';
+
+/** Helpers */
 import { saveInput, setErrorMessage } from '../../../__helpers/helpers';
 
+/** Image */
+import backround_image                from '../../../assets/images/person.svg';
+
+/** CSS */
+import '../login/login.scss';
+import './signup.scss';
+import CustomInputGroup from '../../global/components/custom_input_group';
+
+/**
+ * @class
+ * @extends Component
+ * This component class is being called on App.js <br>
+ * This component class shows the whole signup page. <br>
+ * Last updated at: December 19, 2022
+ */
 class Signup extends Component{
 
     state = {}
 
+    /**
+     * DOCU: Function to validate form. <br>
+     * Triggered by a submit event of the form on render(). <br>
+     * Last updated at: December 17, 2022
+     * @function
+     * @memberof Signup
+     * @param {object} event Required to call the preventDefault method. <br>
+     * @author Daniel
+     */
     validateForm = event => {
         event.preventDefault();
         const { email, password, confirm_password } = this.state;
@@ -56,17 +82,11 @@ class Signup extends Component{
                         <h2>The Wall</h2>
                         <h1>Register</h1>
 
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id="email" tabIndex={1} onChange={event=>saveInput(this, event)} className={email_error? "error": ""}/>
-                        <p className="error_message">{email_error? email_error:""}</p>
+                        <CustomInputGroup parent={this} type="email" name="email" label="Email" error_message={email_error} tabIndex={1}/>
 
-                        <label htmlFor="password">Password</label>
-                        <input type="password" name="password" id="password" tabIndex={2} onChange={event=>saveInput(this, event)} className={password_error? "error": ""}/>
-                        <p className="error_message">{password_error? password_error:""}</p>
+                        <CustomInputGroup parent={this} type="password" name="password" label="Password" error_message={password_error} tabIndex={2}/>
 
-                        <label htmlFor="confirm_password">Confirm Password</label>
-                        <input type="password" name="confirm_password" id="confirm_password" tabIndex={3} onChange={event=>saveInput(this, event)} className={confirm_password_error? "error": ""}/>
-                        <p className="error_message">{confirm_password_error? confirm_password_error:""}</p>
+                        <CustomInputGroup parent={this} type="password" name="confirm_password" label="Confirm Password" error_message={confirm_password_error} tabIndex={3}/>
 
                         <div id="disclaimer">By creating an account, you agree with The Wall's <Link>Privacy Policy</Link> and <Link>Terms of Use</Link>.</div>
 

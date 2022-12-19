@@ -1,9 +1,26 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './login.scss';
-import backround_image from '../../../assets/images/person.svg';
+/** React */
+import React, { Component }           from 'react';
+
+/** Plugins */
+import { Link }                       from 'react-router-dom';
+
+/** Helpers */
 import { saveInput, setErrorMessage } from '../../../__helpers/helpers';
 
+/** Image */
+import backround_image                from '../../../assets/images/person.svg';
+
+/** CSS */
+import './login.scss';
+import CustomInputGroup from '../../global/components/custom_input_group';
+
+/**
+ * @class
+ * @extends Component
+ * This component class is being called on App.js <br>
+ * This component class shows the whole login page. <br>
+ * Last updated at: December 19, 2022
+ */
 class Login extends Component{
 
     state = {
@@ -13,6 +30,15 @@ class Login extends Component{
         }
     }
 
+    /**
+     * DOCU: Function to validate form. <br>
+     * Triggered by a submit event of the form on render(). <br>
+     * Last updated at: December 17, 2022
+     * @function
+     * @memberof Login
+     * @param {object} event Required to call the preventDefault method. <br>
+     * @author Daniel
+     */
     validateForm = event => {
         event.preventDefault();
         const { email, password, login_credentials: {email:email_credential, password:password_credential} } = this.state;
@@ -56,16 +82,21 @@ class Login extends Component{
                         <h2>The Wall</h2>
                         <h1>Log In</h1>
 
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id="email" onChange={event=> saveInput(this, event)} tabIndex={1} className={email_error? "error":""}/>
-                        <p className="error_message">{email_error? email_error:""}</p>
+                        <CustomInputGroup parent={this} type="email" name="email" label="Email" error_message={email_error} tabIndex={1}/>
 
                         <p id="password_area">
-                        <label htmlFor="password">Password</label>
-                        <Link tabIndex={4}>Forgot Password</Link>
+                            <label htmlFor="password">Password</label>
+                            <Link tabIndex={4}>Forgot Password</Link>
                         </p>
-                        <input type="password" name="password" id="password" onChange={event=> saveInput(this, event)} tabIndex={2} className={password_error? "error":""}/>
-                        <p className="error_message">{password_error? password_error:""}</p>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            onChange={event=> saveInput(this, event)}  
+                            className={password_error && "error"}
+                            tabIndex={2}
+                        />
+                        <p className="error_message">{password_error && password_error}</p>
 
                         <button type="submit" tabIndex={3}>Sign in</button>
 

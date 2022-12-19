@@ -1,13 +1,34 @@
+/** React */
 import React, { Component } from 'react';
+
+/** Plugin */
 import Modal from 'react-bootstrap/Modal';
+
+/** SCSS */
 import './create_message_modal.scss';
 
+/**
+ * @class
+ * @extends Component
+ * This component class is being called on dashboard.jsx <br>
+ * This component class shows the modal to create a new message. <br>
+ * Last updated at: December 19, 2022
+ */
 class CreateMessageModal extends Component{
 
     state = {
         new_message: ""
     }
 
+    /**
+     * DOCU: Executes the process of passing the new_message to the createMessage method. Then empties the new_message state. <br>
+     * Triggered by a submit event of the form on render(). <br>
+     * Last updated at: December 19, 2022
+     * @function
+     * @memberof CreateMessageModal
+     * @param {object} event Required to call the preventDefault method. <br>
+     * @author Daniel
+     */
     submitMessage = (event) => {
         event.preventDefault();
         const { new_message } = this.state;
