@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './login.scss';
-import backround_image from '../images/person.svg';
-import { saveInput, setErrorMessage } from '../helpers/helpers';
+import backround_image from '../../../assets/images/person.svg';
+import { saveInput, setErrorMessage } from '../../../__helpers/helpers';
 
 class Login extends Component{
 

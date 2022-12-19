@@ -1,4 +1,4 @@
-@use '../global';
+@use '../../../../assets/scss/global';
 
 .message, .comment{
     border-radius: 6px;
@@ -32,7 +32,7 @@
 
             &.toggle_comment_button{
                 span{
-                    background: url("../images/icons.png") no-repeat -3px -6px;
+                    background: url("../../../../assets/images/icons.png") no-repeat -3px -6px;
                     height: 18px;
                     width: 18px;
                 }
@@ -41,7 +41,7 @@
                     color: global.$blue;
 
                     span{
-                        background: url("../images/icons.png") no-repeat -3px -36px;
+                        background: url("../../../../assets/images/icons.png") no-repeat -3px -36px;
                     }
                 }
             }
@@ -50,7 +50,7 @@
                 color: global.$blue;
 
                 span{
-                    background: url("../images/icons.png") no-repeat -31px -4px;
+                    background: url("../../../../assets/images/icons.png") no-repeat -31px -4px;
                     height: 22px;
                     width: 22px;
                 }
@@ -58,7 +58,7 @@
 
             &.toggle_delete_button{
                 span{
-                    background: url("../images/icons.png") no-repeat -64px -5px;
+                    background: url("../../../../assets/images/icons.png") no-repeat -64px -5px;
                     height: 19px;
                     width: 16px;
                 }

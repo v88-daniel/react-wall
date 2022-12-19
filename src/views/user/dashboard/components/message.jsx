@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './message.scss'
-import user_icon from '../images/user_icon.png';
-import DeleteMessageModal from './delete_message_modal';
+import user_icon from '../../../../assets/images/user_icon.png';
+import DeleteMessageModal from '../modals/delete_message_modal';
 import Comment from './comment';
 class Message extends Component{
 

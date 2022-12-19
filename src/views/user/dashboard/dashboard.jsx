@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Message from './message';
-import no_message_prompt from '../images/empty_message_icon.png';
+import Message from './components/message';
+import no_message_prompt from '../../../assets/images/empty_message_icon.png';
 import './dashboard.scss';
-import CreateMessageModal from './create_message_modal';
+import CreateMessageModal from './modals/create_message_modal';
 
 class Dashboard extends Component{
 

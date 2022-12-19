@@ -1,10 +1,10 @@
-@use '../global';
+@use '../../../../assets/scss/global';
 
 #create_message_modal{
     max-width: 937px;
 
     .btn-close{
-        background: url("../images/icons.png") no-repeat -93px -6px;
+        background: url("../../../../assets/images/icons.png") no-repeat -93px -6px;
         border-radius: 0;
         box-sizing: border-box;
         height: 18px;

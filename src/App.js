@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Dashboard from './components/dashboard';
-import Login from './components/login';
-import Signup from './components/signup';
+import Dashboard from './views/user/dashboard/dashboard';
+import Login from './views/user/login/login';
+import Signup from './views/user/signup/signup';
 
 class App extends Component{
 

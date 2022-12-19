@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './login.scss';
+import '../login/login.scss';
 import './signup.scss';
-import backround_image from '../images/person.svg';
-import { saveInput, setErrorMessage } from '../helpers/helpers';
+import backround_image from '../../../assets/images/person.svg';
+import { saveInput, setErrorMessage } from '../../../__helpers/helpers';
 
 class Signup extends Component{
 

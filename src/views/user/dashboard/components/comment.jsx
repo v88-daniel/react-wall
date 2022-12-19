@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import user_icon from '../images/user_icon.png';
-import DeleteCommentModal from './delete_comment_modal';
+import user_icon from '../../../../assets/images/user_icon.png';
+import DeleteCommentModal from '../modals/delete_comment_modal';
 
 class Comment extends Component{
 
